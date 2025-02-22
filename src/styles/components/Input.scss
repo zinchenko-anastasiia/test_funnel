@@ -2,11 +2,12 @@
 @use "../utils/mixins.scss" as *;
 
 .input {
+  width: 34.3rem;
   background-color: #{$grey};
   padding: 1.3rem 1.6rem;
   border-radius: 1.2rem;
   border: none;
-  color: #{$grey_dark};
+  color: #{$soot};
   @include body_regular;
 
   &::placeholder {

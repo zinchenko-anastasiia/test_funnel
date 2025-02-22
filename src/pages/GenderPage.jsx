@@ -1,39 +1,69 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo } from "react";
 import Select from "../components/Select/Select";
 import Logo from "../assets/kismia_logo.svg";
 import Button from "../components/Button/Button";
 import Stack from "../components/Stack";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { mainActions } from "../redux/slices/mainSlice/mainSlice";
+import {
+  userGender,
+  userLookingFor
+} from "../redux/slices/mainSlice/mainSelector";
+import genderConst from "../constants/genderConst";
+
+const MAN_ID = genderConst.MAN_ID;
+const WOMAN_ID = genderConst.WOMAN_ID;
 
 const GenderPage = () => {
-  const [selectedGender, setSelectedGender] = useState([
-    { id: 1, label: "Woman 👩", selected: false },
-    { id: 2, label: "Man 👨", selected: false }
-  ]);
-  const [selectedGenderLookingFor, setSelectedGenderLookingFor] = useState([
-    { id: 1, label: "Woman 👩", selected: false },
-    { id: 2, label: "Man 👨", selected: false }
-  ]);
+  const dispatch = useDispatch();
+  const gender = useSelector(userGender);
+  const lookingFor = useSelector(userLookingFor);
 
-  const onChange = (id) => {
-    setSelectedGender((prevState) =>
-      prevState.map((option) =>
-        id === option.id
-          ? { ...option, selected: true }
-          : { ...option, selected: false }
-      )
-    );
-  };
+  const userGenderOptions = useMemo(
+    () =>
+      [
+        { id: MAN_ID, label: "Man 👨", selected: false },
+        { id: WOMAN_ID, label: "Woman 👩", selected: false }
+      ].map((item) => ({
+        ...item,
+        selected: item.id === gender
+      })),
+    [gender]
+  );
 
-  const onChangeLookingFor = (id) => {
-    setSelectedGenderLookingFor((prevState) =>
-      prevState.map((option) =>
-        id === option.id
-          ? { ...option, selected: true }
-          : { ...option, selected: false }
-      )
-    );
-  };
+  const lookingForOptions = useMemo(
+    () =>
+      [
+        { id: MAN_ID, label: "Man 👨", selected: false },
+        { id: WOMAN_ID, label: "Woman 👩", selected: false }
+      ].map((item) => ({
+        ...item,
+        selected: item.id === lookingFor
+      })),
+    [lookingFor]
+  );
+
+  const onChange = useCallback(
+    (id) => {
+      dispatch(mainActions.setUserData({ key: "gender", value: id }));
+      const autoLookingFor = id === MAN_ID ? WOMAN_ID : MAN_ID;
+
+      if (!lookingFor) {
+        dispatch(
+          mainActions.setUserData({ key: "lookingFor", value: autoLookingFor })
+        );
+      }
+    },
+    [dispatch, lookingFor]
+  );
+
+  const onChangeLookingFor = useCallback(
+    (id) => {
+      dispatch(mainActions.setUserData({ key: "lookingFor", value: id }));
+    },
+    [dispatch]
+  );
 
   return (
     <Stack
@@ -64,7 +94,7 @@ const GenderPage = () => {
             alignItems="center"
           >
             <p className="body-text">I am...</p>
-            <Select options={selectedGender} onChange={onChange} />
+            <Select options={userGenderOptions} onChange={onChange} />
           </Stack>
           <Stack
             direction="column"
@@ -73,16 +103,13 @@ const GenderPage = () => {
             alignItems="center"
           >
             <p className="body-text">I am looking for...</p>
-            <Select
-              options={selectedGenderLookingFor}
-              onChange={onChangeLookingFor}
-            />
+            <Select options={lookingForOptions} onChange={onChangeLookingFor} />
           </Stack>
           <p className="caption">You can always change who you want to meet</p>
         </Stack>
         <div className="button-wrapper">
           <Link to="/agreement">
-            <Button>Start</Button>
+            <Button disabled={!gender}>Start</Button>
           </Link>
         </div>
       </Stack>

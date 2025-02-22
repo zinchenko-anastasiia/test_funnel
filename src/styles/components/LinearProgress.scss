@@ -5,14 +5,15 @@
   width: 23.1rem;
   background-color: #{$grey};
   border-radius: 50px;
+  overflow: hidden;
 }
 
 .linear-progress-filler {
   height: 100%;
-  width: 100px;
   background-color: #{$primary};
   border-radius: 1.2rem;
   text-align: right;
+  transition: width 0.3s ease-in-out;
 }
 
 .linear-progress-label {

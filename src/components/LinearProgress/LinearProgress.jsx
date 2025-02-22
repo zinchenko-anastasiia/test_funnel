@@ -6,7 +6,10 @@ const LinearProgress = (props) => {
 
   return (
     <div className="linear-progress-container r">
-      <div className="linear-progress-filler">
+      <div
+        className="linear-progress-filler"
+        style={{ width: `${completed}%` }}
+      >
         {completedText && (
           <span className="linear-progress-label">{`${completed}%`}</span>
         )}
