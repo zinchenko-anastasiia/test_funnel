@@ -1,0 +1,13 @@
+@use "../utils/mixins.scss" as *;
+
+.email-title {
+  @include h1;
+}
+
+.email-subtitle {
+  @include secondary_regular;
+}
+
+.email-info {
+  @include small_regular;
+}

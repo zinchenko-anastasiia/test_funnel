@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const IconButton = ({ children }) => {
+const IconButton = ({ children, onClick }) => {
   return (
     <button
       style={{
@@ -16,6 +16,7 @@ const IconButton = ({ children }) => {
         height: "4rem",
         width: "4rem"
       }}
+      onClick={onClick}
     >
       {children}
     </button>
@@ -23,7 +24,8 @@ const IconButton = ({ children }) => {
 };
 
 IconButton.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  onClick: PropTypes.func.isRequired
 };
 
 export default IconButton;
