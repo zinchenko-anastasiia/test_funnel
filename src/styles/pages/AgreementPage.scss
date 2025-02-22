@@ -1,0 +1,20 @@
+@use "../utils/mixins.scss" as *;
+
+.agreement-text {
+  @include body_bold;
+}
+
+.right-holder {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.agreement-answear {
+  @include body_regular;
+  text-decoration: none;
+}
+
+.agreement-link {
+  text-decoration: none;
+  color: inherit;
+}

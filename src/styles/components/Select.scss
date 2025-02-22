@@ -3,6 +3,9 @@
 
 .select-group {
   @include body_regular;
+  min-height: 4.8rem;
+  display: flex;
+  gap: 1.2rem;
 }
 
 .select {
@@ -14,6 +17,10 @@
   transition: background-color 0.3s;
   border-radius: 100px;
   color: $soot;
+
+  &.button {
+    border-radius: 1.2rem;
+  }
 }
 
 .select-active {

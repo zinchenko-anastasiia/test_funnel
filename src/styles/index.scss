@@ -3,6 +3,19 @@
 @use "./components/Button.scss" as *;
 @use "./components/Select.scss" as *;
 @use "./components/Input.scss" as *;
+@use "./components/Collage.scss" as *;
+@use "./pages/GenderPage.scss" as *;
+@use "./pages/AgreementPage.scss" as *;
+@use "./components/LinearProgress.scss" as *;
+
+.container {
+  padding: 1.6rem;
+  padding-bottom: 3.2rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 body {
   font-family: "Linotte", sans-serif;

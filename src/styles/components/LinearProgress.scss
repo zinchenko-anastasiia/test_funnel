@@ -1,0 +1,21 @@
+@use "../utils/vars.scss" as *;
+
+.linear-progress-container {
+  height: 0.4rem;
+  width: 23.1rem;
+  background-color: #{$grey};
+  border-radius: 50px;
+}
+
+.linear-progress-filler {
+  height: 100%;
+  width: 100px;
+  background-color: #{$primary};
+  border-radius: 1.2rem;
+  text-align: right;
+}
+
+.linear-progress-label {
+  padding: 5px;
+  color: white;
+}
