@@ -1,0 +1,29 @@
+@mixin body_regular {
+  font-size: 1.8rem;
+  line-height: 2.16rem;
+  font-weight: 400;
+}
+
+@mixin body_bold {
+  font-size: 1.8rem;
+  line-height: 2.16rem;
+  font-weight: 700;
+}
+
+@mixin small_regular {
+  font-size: 1.4rem;
+  line-height: 1.68rem;
+  font-weight: 400;
+}
+
+@mixin secondary_regular {
+  font-size: 1.6rem;
+  line-height: 1.92rem;
+  font-weight: 400;
+}
+
+@mixin h1 {
+  font-size: 3rem;
+  line-height: 3.6rem;
+  font-weight: 700;
+}

@@ -1,0 +1,31 @@
+@use "../utils/vars.scss" as *;
+@use "../utils/mixins.scss" as *;
+
+.btn {
+  padding: 1.3rem 11.6rem;
+  cursor: pointer;
+  max-width: 100%;
+  border: 1px solid #{$primary};
+  background-color: #{$primary};
+  transition: background-color 0.3s;
+  border-radius: 100px;
+  color: #{$grey};
+  @include body_bold;
+
+  &:hover {
+    background-color: #{$primary};
+  }
+  &:active {
+    background-color: #{$primary_light};
+    color: #{$grey};
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: #{$grey_dark};
+    border-color: #{$grey_dark};
+    color: #{$grey};
+  }
+}

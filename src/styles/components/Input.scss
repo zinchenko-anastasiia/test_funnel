@@ -1,0 +1,26 @@
+@use "../utils/vars.scss" as *;
+@use "../utils/mixins.scss" as *;
+
+.input {
+  background-color: #{$grey};
+  padding: 1.3rem 1.6rem;
+  border-radius: 1.2rem;
+  border: none;
+  color: #{$grey_dark};
+  @include body_regular;
+
+  &::placeholder {
+    color: #{$grey_dark};
+  }
+
+  &:focus {
+    outline: #{$soot} auto 0.1rem;
+    background-color: #{$snow};
+    color: #{$soot};
+  }
+
+  &.error {
+    background-color: #{$primary_light};
+    color: #{$primary};
+  }
+}

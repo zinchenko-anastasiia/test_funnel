@@ -1,0 +1,9 @@
+@use "./fonts.scss" as *;
+@use "./utils.scss" as *;
+@use "./components/Button.scss" as *;
+@use "./components/Select.scss" as *;
+@use "./components/Input.scss" as *;
+
+body {
+  font-family: "Linotte", sans-serif;
+}
