@@ -7,7 +7,7 @@ import RegistrationFormPage from "../pages/RegistrationFormPage";
 
 const RoutesConfig = () => (
   <Routes>
-    <Route path="/gender" element={<GenderPage />} />
+    <Route path="/" element={<GenderPage />} />
     <Route path="/agreement" element={<AgreementPage />} />
     <Route path="/email" element={<RegistrationFormPage />} />
   </Routes>

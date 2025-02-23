@@ -7,12 +7,22 @@ const mainSlice = createSlice({
       gender: null,
       lookingFor: null,
       agreement: null,
-      email: ""
+      email: "",
+      finalQuiz: {
+        question1: null,
+        question2: null,
+        question3: null
+      }
     }
   },
   reducers: {
     setUserData: (state, { payload }) => {
-      state.user[payload.key] = payload?.value;
+      if (payload.key.includes("finalQuiz")) {
+        const questionKey = payload.key.split(".")[1];
+        state.user.finalQuiz[questionKey] = payload?.value;
+      } else {
+        state.user[payload.key] = payload?.value;
+      }
     }
   }
 });

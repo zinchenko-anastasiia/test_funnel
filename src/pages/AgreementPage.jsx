@@ -4,7 +4,6 @@ import Collage from "../components/Collage";
 import Select from "../components/Select/Select";
 import No from "../assets/no.png";
 import Yes from "../assets/yes.png";
-import { Link } from "react-router-dom";
 import ProgressNavigation from "../components/ProgressNavigation";
 import useProgress from "../hooks/useProgress";
 import {
@@ -14,6 +13,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { mainActions } from "../redux/slices/mainSlice/mainSlice";
 import genderConst from "../constants/genderConst";
+import AgreementOption from "../components/AgreementOption";
+import manPhoto1 from "../assets/people/man1.png";
+import manPhoto2 from "../assets/people/man2.png";
+import manPhoto3 from "../assets/people/man3.png";
+import womanPhoto1 from "../assets/people/woman1.jpg";
+import womanPhoto2 from "../assets/people/woman2.jpg";
+import womanPhoto3 from "../assets/people/woman3.jpg";
 
 const MAN_ID = genderConst.MAN_ID;
 
@@ -23,12 +29,18 @@ const AgreementPage = () => {
   const lookingFor = useSelector(userLookingFor);
   const agreement = useSelector(userAgreement);
 
-  const agreementText = useMemo(
+  const agreementContant = useMemo(
     () =>
       lookingFor === MAN_ID
-        ? "Do you agree that man should take the initiative to meet a woman?"
-        : "Do you agree to always answer women who take the initiative and contact you?",
-    [lookingFor]
+        ? {
+            text: "Do you agree that man should take the initiative to meet a woman?",
+            photo: [manPhoto3, manPhoto1, manPhoto2]
+          }
+        : {
+            text: "Do you agree to always answer women who take the initiative and contact you?",
+            photo: [womanPhoto1, womanPhoto3, womanPhoto2]
+          },
+    [agreement]
   );
 
   const agreementOptions = useMemo(
@@ -37,24 +49,22 @@ const AgreementPage = () => {
         {
           id: 1,
           label: (
-            <Link to="/email" className="agreement-link">
-              <Stack gap="0.8rem" alignItems="center">
-                <img src={No} alt="no" />{" "}
-                <p className="agreement-answear">No</p>
-              </Stack>
-            </Link>
+            <AgreementOption
+              label={{ img: No, text: "No" }}
+              link={true}
+              to="/email"
+            />
           ),
           selected: false
         },
         {
           id: 2,
           label: (
-            <Link to="/email" className="agreement-link">
-              <Stack gap="0.8rem" alignItems="center">
-                <img src={Yes} alt="Yes" />{" "}
-                <p className="agreement-answear">Yes</p>
-              </Stack>
-            </Link>
+            <AgreementOption
+              label={{ img: Yes, text: "Yes" }}
+              link={true}
+              to="/email"
+            />
           ),
           selected: false
         }
@@ -76,10 +86,10 @@ const AgreementPage = () => {
     <Stack justifyContent="space-between" height="100%" alignItems="center">
       <ProgressNavigation progressData={[{ completed: progress }]} />
       <Stack height="19.4rem">
-        <Collage />
+        <Collage photo={agreementContant?.photo} />
       </Stack>
       <Stack alignItems="center" textAlign="center">
-        <p className="agreement-text">{agreementText}</p>
+        <p className="agreement-text">{agreementContant?.text}</p>
         <Select
           options={agreementOptions}
           onChange={handleChangeAgreement}

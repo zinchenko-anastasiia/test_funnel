@@ -1,0 +1,11 @@
+@use "../utils/mixins.scss" as *;
+
+.agreement-answear {
+  @include body_regular;
+  text-decoration: none;
+}
+
+.agreement-link {
+  text-decoration: none;
+  color: inherit;
+}

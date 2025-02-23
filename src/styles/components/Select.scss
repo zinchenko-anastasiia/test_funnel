@@ -3,20 +3,27 @@
 
 .select-group {
   @include body_regular;
-  min-height: 4.8rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
+  min-height: 4.8rem;
 }
 
 .select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
   padding: 1.3rem 4.15rem;
-  cursor: pointer;
   max-width: 100%;
+  border-radius: 10rem;
   border: 1px solid $grey;
   background-color: $grey;
-  transition: background-color 0.3s;
-  border-radius: 100px;
   color: $soot;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
   &.button {
     border-radius: 1.2rem;
@@ -26,11 +33,11 @@
 .select-active {
   background-color: #{$primary_light};
   border: 1px solid #{$primary_light};
-  color: $soot;
+  color: #{$primary};
 }
 
 .select-inactive {
-  background-color: $grey;
+  background-color: #{$grey};
 }
 
 input[type="checkbox"] {

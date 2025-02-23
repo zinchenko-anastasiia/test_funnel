@@ -10,9 +10,12 @@
 
 .photo {
   position: absolute;
+
   img {
     width: 13.4rem;
     height: 17.1rem;
+    object-fit: cover;
+    border-radius: 1.2rem;
   }
 
   &.center {

@@ -11,6 +11,8 @@ import {
   userLookingFor
 } from "../redux/slices/mainSlice/mainSelector";
 import genderConst from "../constants/genderConst";
+import ManIcon from "../assets/man.svg";
+import WomanIcon from "../assets/woman.svg";
 
 const MAN_ID = genderConst.MAN_ID;
 const WOMAN_ID = genderConst.WOMAN_ID;
@@ -23,8 +25,34 @@ const GenderPage = () => {
   const userGenderOptions = useMemo(
     () =>
       [
-        { id: MAN_ID, label: "Man 👨", selected: false },
-        { id: WOMAN_ID, label: "Woman 👩", selected: false }
+        {
+          id: MAN_ID,
+          label: (
+            <>
+              <img
+                src={ManIcon}
+                alt="ManIcon"
+                style={{ width: "1.8rem", height: "2.2rem" }}
+              />
+              Man
+            </>
+          ),
+          selected: false
+        },
+        {
+          id: WOMAN_ID,
+          label: (
+            <>
+              <img
+                src={WomanIcon}
+                alt="WomanIcon"
+                style={{ width: "1.8rem", height: "2.2rem" }}
+              />
+              Woman
+            </>
+          ),
+          selected: false
+        }
       ].map((item) => ({
         ...item,
         selected: item.id === gender
@@ -35,8 +63,34 @@ const GenderPage = () => {
   const lookingForOptions = useMemo(
     () =>
       [
-        { id: MAN_ID, label: "Man 👨", selected: false },
-        { id: WOMAN_ID, label: "Woman 👩", selected: false }
+        {
+          id: MAN_ID,
+          label: (
+            <>
+              <img
+                src={ManIcon}
+                alt="ManIcon"
+                style={{ width: "1.8rem", height: "2.2rem" }}
+              />
+              Man
+            </>
+          ),
+          selected: false
+        },
+        {
+          id: WOMAN_ID,
+          label: (
+            <>
+              <img
+                src={WomanIcon}
+                alt="WomanIcon"
+                style={{ width: "1.8rem", height: "2.2rem" }}
+              />
+              Woman
+            </>
+          ),
+          selected: false
+        }
       ].map((item) => ({
         ...item,
         selected: item.id === lookingFor
