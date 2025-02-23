@@ -1,5 +1,6 @@
 {
-  "name": "my-app",
+  "name": "test_funnel",
+  "homepage": "https://zinchenko-anastasiia.github.io/test_funnel",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,7 +9,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src/**/*.{js,jsx}",
-    "format": "prettier --write src/**/*.{js,jsx,scss}"
+    "format": "prettier --write src/**/*.{js,jsx,scss}",
+    "build-css": "sass src/styles:dist/css",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
@@ -30,6 +33,7 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
+    "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
     "prettier": "^3.5.2",
     "vite": "^6.1.0"
