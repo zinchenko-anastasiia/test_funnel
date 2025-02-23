@@ -7,13 +7,13 @@ const Collage = ({ photo }) => {
   return (
     <div className="collage">
       <div className="photo left">
-        <img src={photoPath1} alt="Center" />
+        <img src={photoPath1} alt="Center" loading="lazy" />
       </div>
       <div className="photo center">
-        <img src={photoPath2} alt="Left" />
+        <img src={photoPath2} alt="Left" loading="lazy" />
       </div>
       <div className="photo right">
-        <img src={photoPath3} alt="Right" />
+        <img src={photoPath3} alt="Right" loading="lazy" />
       </div>
     </div>
   );

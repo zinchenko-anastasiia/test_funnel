@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import colorConst from "../../constants/colorConst";
+
+const GREY = colorConst.GREY;
 
 const cleanPercentage = (percentage) => {
   const tooLow = !Number.isFinite(+percentage) || percentage < 0;
@@ -55,7 +58,7 @@ const Circular = ({ percentage, dye, size }) => {
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="circular-progress">
       <g transform={`rotate(-90 ${size / 2} ${size / 2})`}>
-        <Circle dye="#F1F1F1" size={size} />
+        <Circle dye={GREY} size={size} />
         <Circle dye={dye} pct={pct} size={size} />
       </g>
       <Text percentage={pct} size={size} />

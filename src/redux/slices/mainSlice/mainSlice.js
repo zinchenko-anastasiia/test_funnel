@@ -13,6 +13,9 @@ const mainSlice = createSlice({
         question2: null,
         question3: null
       }
+    },
+    validation: {
+      email: false
     }
   },
   reducers: {
@@ -23,6 +26,9 @@ const mainSlice = createSlice({
       } else {
         state.user[payload.key] = payload?.value;
       }
+    },
+    setValidation: (state, { payload }) => {
+      state.validation[payload.key] = payload?.value;
     }
   }
 });

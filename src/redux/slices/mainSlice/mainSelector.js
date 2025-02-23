@@ -9,3 +9,5 @@ export const quizeQuestion2 = (state) =>
   state.mainReducer.user.finalQuiz.question2;
 export const quizeQuestion3 = (state) =>
   state.mainReducer.user.finalQuiz.question3;
+
+export const emailValid = (state) => state.mainReducer.validation.email;
